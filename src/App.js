@@ -38,11 +38,7 @@ class BooksApp extends React.Component {
     });
   };
 
-  combineSearchResults = searchTerm => {
-    const stateSearchResults = this.state.books.filter(book =>
-      filterBook(book, searchTerm)
-    );
-    const bookIDs = stateSearchResults.map(book => book.id);
+  combineSearchResults = (stateSearchResults, bookIDs) => {
     this.setState(currentState => {
       const searchResults = Array.from(currentState.searchResults);
       const combinedResults = stateSearchResults.concat(
@@ -55,8 +51,12 @@ class BooksApp extends React.Component {
   };
 
   updateSearchResults = (databaseSearchResults, searchTerm) => {
+    const stateSearchResults = this.state.books.filter(book =>
+      filterBook(book, searchTerm)
+    );
+    const bookIDs = stateSearchResults.map(book => book.id);    
     this.setState({ searchResults: databaseSearchResults }, () => {
-      this.combineSearchResults(searchTerm);
+      this.combineSearchResults(stateSearchResults, bookIDs);
     });
   };
 

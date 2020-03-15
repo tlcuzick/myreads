@@ -1,6 +1,6 @@
 # My Reads
 
-This website allows the user to keep track of books that have been read, are currently being read, or that he or she would like to read.
+This web application allows the user to keep track of books that they have read, are currently reading, or that they would like to read.
 
 ## Download
 
