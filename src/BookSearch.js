@@ -1,30 +1,28 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import BookGrid from './BookGrid';
 import SearchForm from './SearchForm';
 
 class BookSearch extends Component {
   componentDidMount() {
-    this.props.clearSearchResults()
+    this.props.clearSearchResults();
   }
-  
+
   render() {
-    const {searchBooks, books, updateBook} = this.props
+    const { searchBooks, books, updateBook } = this.props;
     return (
-      <div className="search-books">
-        <div className="search-books-bar">
-          <Link to='/' className="close-search">
+      <div className='search-books'>
+        <div className='search-books-bar'>
+          <Link to='/' className='close-search'>
             Close
           </Link>
-          <SearchForm 
-            searchBooks={searchBooks}
-          />
+          <SearchForm searchBooks={searchBooks} />
         </div>
-        <div className="search-books-results">
+        <div className='search-books-results'>
           <BookGrid books={books} updateBook={updateBook} />
         </div>
       </div>
-    )    
+    );
   }
 }
 
