@@ -145,3 +145,20 @@
                     </ol>
                   </div>
                 </div>
+
+
+        {this.state.showSearchPage ? (
+		  <BookSearch
+      	    searchBooks={this.searchBooks}
+            books={this.state.searchResults}
+            updateBook={this.updateBook}
+            clearSearchResults={this.clearSearchResults}
+            goHome={() => this.setState({ showSearchPage: false })}
+		  />
+        ) : (
+		  <BookSelections 
+            books={this.state.books} 
+            updateBook={this.updateBook}
+            search={() => this.setState({ showSearchPage: true })} 
+          />
+        )}

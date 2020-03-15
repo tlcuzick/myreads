@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom'
 import BookGrid from './BookGrid';
 import SearchForm from './SearchForm';
 
@@ -8,13 +9,13 @@ class BookSearch extends Component {
   }
   
   render() {
-    const {goHome, searchBooks, books, updateBook} = this.props
+    const {searchBooks, books, updateBook} = this.props
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <a className="close-search" onClick={goHome}>
+          <Link to='/' className="close-search">
             Close
-          </a>
+          </Link>
           <SearchForm 
             searchBooks={searchBooks}
           />
