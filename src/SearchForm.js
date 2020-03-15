@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 
 class SearchForm extends Component {
   state = {
-    searchTerm: 'Art'
+    searchTerm: ''
   }
 
   handleChange = event => {
-    this.setState({searchTerm: event.target.value});
+    this.setState({searchTerm: event.target.value}, () => {
+      this.props.searchBooks(this.state.searchTerm)
+    })
   }
 
   render() {
@@ -21,3 +23,5 @@ class SearchForm extends Component {
     )
   }
 }
+
+export default SearchForm;

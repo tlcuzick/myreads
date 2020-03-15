@@ -1,20 +1,30 @@
-import React from 'react';
+import React, {Component} from 'react';
 import BookGrid from './BookGrid';
+import SearchForm from './SearchForm';
 
-const BookSearch = props => (
-  <div className="search-books">
-    <div className="search-books-bar">
-      <a className="close-search" onClick={props.goHome}>
-        Close
-      </a>
-      <div className="search-books-input-wrapper">
-        <input type="text" placeholder="Search by title or author" />
+class BookSearch extends Component {
+  componentDidMount() {
+    this.props.clearSearchResults()
+  }
+  
+  render() {
+    const {goHome, searchBooks, books, updateBook} = this.props
+    return (
+      <div className="search-books">
+        <div className="search-books-bar">
+          <a className="close-search" onClick={goHome}>
+            Close
+          </a>
+          <SearchForm 
+            searchBooks={searchBooks}
+          />
+        </div>
+        <div className="search-books-results">
+          <BookGrid books={books} updateBook={updateBook} />
+        </div>
       </div>
-    </div>
-    <div className="search-books-results">
-      <ol className="books-grid"></ol>
-    </div>
-  </div>
-);
+    )    
+  }
+}
 
 export default BookSearch;
