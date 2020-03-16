@@ -1,4 +1,4 @@
-# Project Description
+# MyReads
 
 MyReads is a web application that gives users the ability to search a database of books, and then categorize the books they select by whether they are currently being read, have already been read, or have not yet been read
 
